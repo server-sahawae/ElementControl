@@ -2,6 +2,7 @@ const { Op } = require("sequelize");
 const { APIGetNameByUserId } = require("../APIs/GlobalAccess");
 const redis = require("../config/redisConfig");
 const { NO_DATA, NO_UPDATE } = require("../constants/ErrorKeys");
+const { loggerInfo, loggerDebug } = require("../helpers/loggerDebug");
 const { redisDel, redisContent } = require("../helpers/redis");
 const { Content } = require("../models");
 
@@ -30,12 +31,11 @@ module.exports = class Controller {
         delete data.dataValues.UpdatedId;
         delete data.dataValues.CompanyId;
         await redis.set(redisKey, JSON.stringify(data));
-        console.log("SET CONTENT REDIS");
+        loggerInfo("SET CONTENT REDIS");
         result = data;
       } else result = itemRedis;
       res.status(200).json(result);
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }
@@ -53,7 +53,7 @@ module.exports = class Controller {
         { isActive, UpdatedId: UserId },
         { where: { id: ContentId } }
       );
-      console.log(`${CompanyId}:${data.CategoryId}:${ContentId}`);
+      loggerDebug(`REDIS KEY: ${CompanyId}:${data.CategoryId}:${ContentId}`);
       await redisDel(CompanyId, data.CategoryId, ContentId);
       res.status(200).json({
         message: `${data.title} is now ${
@@ -61,7 +61,6 @@ module.exports = class Controller {
         }`,
       });
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }

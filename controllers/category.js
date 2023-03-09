@@ -5,7 +5,7 @@ const redis = require("../config/redisConfig");
 const { APIGetNameByUserId } = require("../APIs/GlobalAccess");
 const { APPLICATION_ID } = require("../constants/server");
 const { redisCategory, redisDel } = require("../helpers/redis");
-const logger = require("../helpers/loggerDebug");
+const { loggerError, loggerInfo } = require("../helpers/loggerDebug");
 
 module.exports = class Controller {
   static async createCategory(req, res, next) {
@@ -28,7 +28,7 @@ module.exports = class Controller {
 
   static async getCategory(req, res, next) {
     try {
-      console.log(req.access);
+      loggerInfo(req.access);
       const { CompanyId } = req.access;
       const data = await Category.findAll({
         attributes: ["id", "name", "icon", "isDynamic"],
@@ -100,17 +100,17 @@ module.exports = class Controller {
       }
       res.status(200).json(data);
     } catch (error) {
-      console.log(error);
+      loggerError(error);
       next(error);
     }
   }
 
   static async patchCategory(req, res, next) {
     try {
-      console.log("masuk");
       let isUpdate = false;
       const { CategoryId: id, name, icon, isDynamic } = req.body;
       const { UserId, CompanyId } = req.access;
+      loggerInfo("PATCH CATEGORY");
 
       const initiate = await Category.findOne({ where: { id } });
       await Category.update(
@@ -134,7 +134,6 @@ module.exports = class Controller {
         isUpdate = true;
       }
       if (!isUpdate) throw { name: NO_UPDATE };
-      console.log(isDynamic !== initiate.isDynamic.toString());
       await redisDel(CompanyId, id);
       res.status(200).json(result);
     } catch (error) {
@@ -144,7 +143,7 @@ module.exports = class Controller {
 
   static async deleteCategory(req, res, next) {
     try {
-      console.log("masuk");
+      loggerInfo("DELETE CATGEGORY");
       const { CategoryId: id } = req.body;
       const { UserId, CompanyId } = req.access;
       const data = await Category.update(
