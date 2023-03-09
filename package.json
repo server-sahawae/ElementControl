@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app",
     "start": "node app",
+    "clear": "npm cache clean --force",
     "seqInit": "npx sequelize db:migrate && npx sequelize db:seed:all",
     "seqMigrate": "npx sequelize db:migrate",
     "seqSeed": "npx sequelize db:seed:all",

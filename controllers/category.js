@@ -95,7 +95,6 @@ module.exports = class Controller {
         );
         if (data.length) {
           logger.log("SET REDIS");
-          console.log(`${APPLICATION_ID}:${CompanyId}:${CategoryId}`);
           await redis.set(redisKey, JSON.stringify(data));
         }
       }
