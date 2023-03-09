@@ -16,7 +16,7 @@ const { loggerInfo } = require("./helpers/loggerDebug");
 
 app.get("/log", (req, res) => {
   loggerInfo("CHECK LOG");
-  res.sendFile(path.join(__dirname + "/sahawae.log"));
+  res.sendFile(path.join(__dirname + "/logs.log"));
 });
 
 app.use(routes);
