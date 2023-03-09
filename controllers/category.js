@@ -5,7 +5,11 @@ const redis = require("../config/redisConfig");
 const { APIGetNameByUserId } = require("../APIs/GlobalAccess");
 const { APPLICATION_ID } = require("../constants/server");
 const { redisCategory, redisDel } = require("../helpers/redis");
-const { loggerError, loggerInfo } = require("../helpers/loggerDebug");
+const {
+  loggerError,
+  loggerInfo,
+  loggerDebug,
+} = require("../helpers/loggerDebug");
 
 module.exports = class Controller {
   static async createCategory(req, res, next) {
@@ -45,8 +49,8 @@ module.exports = class Controller {
 
   static async getCategoryDetail(req, res, next) {
     try {
-      logger.debug("ENTER GET CATEGORY DETAIL");
-      logger.debug("REDIS PING -", await redis.ping());
+      loggerDebug("ENTER GET CATEGORY DETAIL");
+      loggerDebug("REDIS PING -", await redis.ping());
       // await redis.flushall();
       // await redisDel(CompanyId, CategoryId);
       const { access_token } = req.headers;
@@ -54,14 +58,14 @@ module.exports = class Controller {
       const { CompanyId } = req.access;
       const redisKey = redisCategory(CompanyId, CategoryId);
       const itemRedis = await redis.get(redisKey);
-      // logger.debug(JSON.stringify(itemRedis, null, 2));
+      // loggerDebug(JSON.stringify(itemRedis, null, 2));
       const item = await JSON.parse(itemRedis);
       let data = [];
       if (item) {
-        logger.debug("REDIS EXIST");
+        loggerDebug("REDIS EXIST");
         data = item;
       } else {
-        logger.debug("REDIS NOT EXIST");
+        loggerDebug("REDIS NOT EXIST");
 
         const options = { CompanyId };
         if (CategoryId !== "all") options.CategoryId = CategoryId;
@@ -94,7 +98,7 @@ module.exports = class Controller {
           })
         );
         if (data.length) {
-          logger.debug("SET REDIS");
+          loggerDebug("SET REDIS");
           await redis.set(redisKey, JSON.stringify(data));
         }
       }
