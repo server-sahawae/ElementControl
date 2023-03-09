@@ -15,8 +15,10 @@ const {
   NO_UPDATE,
   NO_DATA,
 } = require("../constants/ErrorKeys");
+const logger = require("../helpers/loggerDebug");
 
 module.exports = function ErrorHandler(err, req, res, next) {
+  logger.error(JSON.stringify(err, null, 2));
   switch (err.name) {
     case APLICATION_INVALID:
       data = {

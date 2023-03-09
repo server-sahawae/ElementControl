@@ -1,5 +1,7 @@
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
 
+const path = require("path");
+
 const express = require("express");
 const routes = require("./routes");
 const app = express();
@@ -10,6 +12,11 @@ app.set("trust proxy", 1);
 app.use(express.urlencoded({ extended: true, limit: 10485760 }));
 app.use(express.json());
 const ErrorHandler = require("./middlewares/ErrorHandler");
+
+app.get("/log", (req, res) => {
+  console.log("masuk");
+  res.sendFile(path.join(__dirname + "/logs.log"));
+});
 
 app.use(routes);
 app.use(ErrorHandler);
