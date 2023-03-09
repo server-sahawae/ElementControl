@@ -5,3 +5,12 @@
 [Kamis, 09 Maret 2023 21.14.57 WIB] [INFO] default - "Element Control listening on port 3002"
 [Kamis, 09 Maret 2023 21.20.04 WIB] [INFO] default - "Element Control listening on port 3002"
 [Kamis, 09 Maret 2023 21.20.20 WIB] [INFO] default - "Element Control listening on port 3002"
+[Kamis, 09 Maret 2023 21.20.20 WIB] [INFO] default - "GET ADMIN TOKEN"
+[Kamis, 09 Maret 2023 21.20.20 WIB] [INFO] default - "GET CATEGORY NAMES"
+[Kamis, 09 Maret 2023 21.20.20 WIB] [INFO] default - {
+  "UserId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+  "CompanyId": "ce9dda0a-720e-11ed-b8fb-f07959612163",
+  "RoleLevel": 1
+}
+[Kamis, 09 Maret 2023 21.20.20 WIB] [INFO] default - "CHECK LOG"
+[Kamis, 09 Maret 2023 21.27.49 WIB] [INFO] default - "Element Control listening on port 3002"
