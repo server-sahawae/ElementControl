@@ -1,5 +1,4 @@
-const Controller = require("../controllers/Content");
-const { isCategoryGrow } = require("../middlewares/CheckCategory");
+const Controller = require("../controllers/content");
 const { getAdminTokenDetail } = require("../middlewares/GlobalAccessAuth");
 
 const routes = require("express").Router();
