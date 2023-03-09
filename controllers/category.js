@@ -58,6 +58,7 @@ module.exports = class Controller {
       const item = await JSON.parse(itemRedis);
       let data = [];
       if (item) {
+        logger.log("REDIS EXIST");
         data = item;
       } else {
         const options = { CompanyId };
@@ -91,7 +92,7 @@ module.exports = class Controller {
           })
         );
         if (data.length) {
-          console.log("SET REDIS");
+          logger.log("SET REDIS");
           console.log(`${APPLICATION_ID}:${CompanyId}:${CategoryId}`);
           await redis.set(redisKey, JSON.stringify(data));
         }
