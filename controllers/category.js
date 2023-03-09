@@ -61,6 +61,8 @@ module.exports = class Controller {
         logger.log("REDIS EXIST");
         data = item;
       } else {
+        logger.log("REDIS NOT EXIST");
+
         const options = { CompanyId };
         if (CategoryId !== "all") options.CategoryId = CategoryId;
         data = await Content.findAll({
