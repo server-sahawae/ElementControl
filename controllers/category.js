@@ -45,8 +45,8 @@ module.exports = class Controller {
 
   static async getCategoryDetail(req, res, next) {
     try {
-      logger.log("ENTER GET CATEGORY DETAIL");
-      logger.log("REDIS PING -", await redis.ping());
+      logger.debug("ENTER GET CATEGORY DETAIL");
+      logger.debug("REDIS PING -", await redis.ping());
       // await redis.flushall();
       // await redisDel(CompanyId, CategoryId);
       const { access_token } = req.headers;
@@ -58,10 +58,10 @@ module.exports = class Controller {
       const item = await JSON.parse(itemRedis);
       let data = [];
       if (item) {
-        logger.log("REDIS EXIST");
+        logger.debug("REDIS EXIST");
         data = item;
       } else {
-        logger.log("REDIS NOT EXIST");
+        logger.debug("REDIS NOT EXIST");
 
         const options = { CompanyId };
         if (CategoryId !== "all") options.CategoryId = CategoryId;
@@ -94,7 +94,7 @@ module.exports = class Controller {
           })
         );
         if (data.length) {
-          logger.log("SET REDIS");
+          logger.debug("SET REDIS");
           await redis.set(redisKey, JSON.stringify(data));
         }
       }
