@@ -32,6 +32,7 @@ module.exports = class Controller {
 
   static async getCategory(req, res, next) {
     try {
+      loggerInfo("GET CATEGORY NAMES");
       loggerInfo(req.access);
       const { CompanyId } = req.access;
       const data = await Category.findAll({

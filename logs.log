@@ -1,9 +1,18 @@
-[2023-03-09T19:19:36.955] [INFO] default - "Element Control listening on port 3002"
-[2023-03-09T19:20:10.572] [INFO] default - "GET ADMIN TOKEN"
-[2023-03-09T19:20:12.727] [ERROR] default - {}
-[2023-03-09T19:20:12.739] [ERROR] default - {}
-[2023-03-09T19:20:40.001] [INFO] default - "Element Control listening on port 3002"
-[2023-03-09T19:20:43.374] [INFO] default - "GET ADMIN TOKEN"
-[2023-03-09T19:20:43.541] [DEBUG] default - "ENTER GET CATEGORY DETAIL"
-[2023-03-09T19:20:43.788] [DEBUG] default - "REDIS PING -"
-[2023-03-09T19:20:44.043] [DEBUG] default - "REDIS EXIST"
+[2023-03-09T19:29:33.448] [INFO] default - "Element Control listening on port 3002"
+[2023-03-09T19:30:10.354] [INFO] default - "Element Control listening on port 3002"
+[2023-03-09T19:30:27.800] [INFO] default - "GET ADMIN TOKEN"
+[2023-03-09T19:30:29.044] [INFO] default - "GET CATEGORY NAMES"
+[2023-03-09T19:30:29.047] [INFO] default - {
+  "UserId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+  "CompanyId": "ce9dda0a-720e-11ed-b8fb-f07959612163",
+  "RoleLevel": 1
+}
+[2023-03-09T19:30:31.300] [INFO] default - "GET ADMIN TOKEN"
+[2023-03-09T19:30:31.448] [INFO] default - "GET CATEGORY NAMES"
+[2023-03-09T19:30:31.450] [INFO] default - {
+  "UserId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+  "CompanyId": "ce9dda0a-720e-11ed-b8fb-f07959612163",
+  "RoleLevel": 1
+}
+[2023-03-09T19:32:18.744] [INFO] default - "Element Control listening on port 3002"
+[2023-03-09T19:32:28.902] [INFO] default - "Element Control listening on port 3002"

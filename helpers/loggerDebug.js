@@ -9,45 +9,57 @@ log4js.configure({
 const logger = log4js.getLogger();
 
 function loggerTrace(data) {
-  if (process.env.NODE_ENV !== "production") console.trace(data);
-  data = JSON.stringify(data, null, 2);
+  if (process.env.DEBUG) {
+    if (process.env.NODE_ENV !== "production") console.trace(data);
+    data = JSON.stringify(data, null, 2);
 
-  logger.trace(data);
+    logger.trace(data);
+  }
 }
 
 function loggerDebug(data) {
-  if (process.env.NODE_ENV !== "production") console.debug(data);
-  data = JSON.stringify(data, null, 2);
+  if (process.env.DEBUG) {
+    if (process.env.NODE_ENV !== "production") console.debug(data);
+    data = JSON.stringify(data, null, 2);
 
-  logger.debug(data);
+    logger.debug(data);
+  }
 }
 
 function loggerInfo(data) {
-  if (process.env.NODE_ENV !== "production") console.info(data);
-  data = JSON.stringify(data, null, 2);
+  if (process.env.DEBUG) {
+    if (process.env.NODE_ENV !== "production") console.info(data);
+    data = JSON.stringify(data, null, 2);
 
-  logger.info(data);
+    logger.info(data);
+  }
 }
 
 function loggerWarn(data) {
-  if (process.env.NODE_ENV !== "production") console.warn(data);
-  data = JSON.stringify(data, null, 2);
+  if (process.env.DEBUG) {
+    if (process.env.NODE_ENV !== "production") console.warn(data);
+    data = JSON.stringify(data, null, 2);
 
-  logger.warn(data);
+    logger.warn(data);
+  }
 }
 
 function loggerError(data) {
-  if (process.env.NODE_ENV !== "production") console.error(data);
-  data = JSON.stringify(data, null, 2);
+  if (process.env.DEBUG) {
+    if (process.env.NODE_ENV !== "production") console.error(data);
+    data = JSON.stringify(data, null, 2);
 
-  logger.error(data);
+    logger.error(data);
+  }
 }
 
 function loggerFatal(data) {
-  if (process.env.NODE_ENV !== "production") console.error(data);
-  data = JSON.stringify(data, null, 2);
+  if (process.env.DEBUG) {
+    if (process.env.NODE_ENV !== "production") console.error(data);
+    data = JSON.stringify(data, null, 2);
 
-  logger.fatal(data);
+    logger.fatal(data);
+  }
 }
 
 module.exports = {

@@ -22,5 +22,7 @@ app.get("/log", (req, res) => {
 app.use(routes);
 app.use(ErrorHandler);
 app.listen(port, () => {
-  loggerInfo(`Element Control listening on port ${port}`);
+  if (process.env.DEBUG) {
+    loggerInfo(`Element Control listening on port ${port}`);
+  } else console.log(`Element Control listening on port ${port}`);
 });
