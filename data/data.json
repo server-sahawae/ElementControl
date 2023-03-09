@@ -1,0 +1,126 @@
+{
+  "contents": [
+    {
+      "id": "09e07d48-b566-11ed-8389-f07959612163",
+      "title": "Pendidikan Agama Islam",
+      "description": "S1 Jurusan Pendidikan Agama Islam di Indramayu",
+      "content": "Pendidikan Agama Islam STAI Sayid Sabiq Indramayu telah berdiri sejak",
+      "ImageCover": null,
+      "AuthorId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+      "UpdatedId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+      "CompanyId": "ce9dda0a-720e-11ed-b8fb-f07959612163",
+      "CategoryId": "8de026df-d57b-44f5-a652-c4948e61c396",
+      "isActive": false,
+      "deletedAt": null,
+      "createdAt": "2023-02-25T17:39:05.000Z",
+      "updatedAt": "2023-02-25T17:39:05.000Z"
+    },
+    {
+      "id": "09e093dc-b566-11ed-8389-f07959612163",
+      "title": "Perbankan Syari'ah",
+      "description": "S1 Jurusan Ekonomi Perbankan Syariah di indramayu",
+      "content": "Jurusan Perbankan Syariah STAI Sayid Sabiq Indramayu telah terakreditasi B",
+      "ImageCover": null,
+      "AuthorId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+      "UpdatedId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+      "CompanyId": "ce9dda0a-720e-11ed-b8fb-f07959612163",
+      "CategoryId": "8de026df-d57b-44f5-a652-c4948e61c396",
+      "isActive": false,
+      "deletedAt": null,
+      "createdAt": "2023-02-25T17:39:05.000Z",
+      "updatedAt": "2023-02-25T17:39:05.000Z"
+    },
+    {
+      "id": "74c00546-b565-11ed-8389-f07959612163",
+      "title": "VISI MISI STAI SAYID SABIQ INDRAMAYU",
+      "description": "VISI MISI STAI SAYID SABIQ INDRAMAYU",
+      "content": "STAI SAYID SABIQ INDRAMAYU BERTUJUAN UNTUK ....",
+      "ImageCover": null,
+      "AuthorId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+      "UpdatedId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+      "CompanyId": "ce9dda0a-720e-11ed-b8fb-f07959612163",
+      "CategoryId": "8deab414-a0ad-424e-9e06-197bef7baa58",
+      "isActive": false,
+      "deletedAt": null,
+      "createdAt": "2023-02-25T17:36:33.000Z",
+      "updatedAt": "2023-02-25T17:36:33.000Z"
+    },
+    {
+      "id": "cd8812e1-b561-11ed-8389-f07959612163",
+      "title": "Phone Number",
+      "description": "Nomor telepon STAI Sayid Sabiq Indramayu",
+      "content": "0234 274222",
+      "ImageCover": null,
+      "AuthorId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+      "UpdatedId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+      "CompanyId": "ce9dda0a-720e-11ed-b8fb-f07959612163",
+      "CategoryId": "cdd27797-1dc7-4658-b26a-dc734f258e9b",
+      "isActive": false,
+      "deletedAt": null,
+      "createdAt": "2023-02-25T10:11:13.000Z",
+      "updatedAt": "2023-02-25T10:11:13.000Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "8de026df-d57b-44f5-a652-c4948e61c396",
+      "name": "Program Study",
+      "icon": "school",
+      "CompanyId": "ce9dda0a-720e-11ed-b8fb-f07959612163",
+      "CreatorId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+      "UpdatedId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+      "isDynamic": "0",
+      "deletedAt": null,
+      "createdAt": "2023-02-18 22:12:03",
+      "updatedAt": "2023-02-18 22:12:03"
+    },
+    {
+      "id": "8deab414-a0ad-424e-9e06-197bef7baa58",
+      "name": "Visi Misi",
+      "icon": "crosshairs-gps",
+      "CompanyId": "ce9dda0a-720e-11ed-b8fb-f07959612163",
+      "CreatorId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+      "UpdatedId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+      "isDynamic": "0",
+      "deletedAt": null,
+      "createdAt": "2023-02-18 22:08:59",
+      "updatedAt": "2023-02-18 22:08:59"
+    },
+    {
+      "id": "a3027a26-504e-4b6c-b90f-b7abfce4e17a",
+      "name": "Tentang Kami",
+      "icon": "domain",
+      "CompanyId": "ce9dda0a-720e-11ed-b8fb-f07959612163",
+      "CreatorId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+      "UpdatedId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+      "isDynamic": "0",
+      "deletedAt": null,
+      "createdAt": "2023-02-18 22:11:08",
+      "updatedAt": "2023-02-18 22:11:08"
+    },
+    {
+      "id": "b70af8da-096b-4fbc-8e62-4644ac4e7bff",
+      "name": "Struktur Organisasi",
+      "icon": "account-group",
+      "CompanyId": "ce9dda0a-720e-11ed-b8fb-f07959612163",
+      "CreatorId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+      "UpdatedId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+      "isDynamic": "0",
+      "deletedAt": null,
+      "createdAt": "2023-02-18 22:18:38",
+      "updatedAt": "2023-02-18 22:18:38"
+    },
+    {
+      "id": "cdd27797-1dc7-4658-b26a-dc734f258e9b",
+      "name": "Header",
+      "icon": "page-layout-header",
+      "CompanyId": "ce9dda0a-720e-11ed-b8fb-f07959612163",
+      "CreatorId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+      "UpdatedId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+      "isDynamic": "0",
+      "deletedAt": null,
+      "createdAt": "2023-02-18 22:09:33",
+      "updatedAt": "2023-02-18 22:09:33"
+    }
+  ]
+}
