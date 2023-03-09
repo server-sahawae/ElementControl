@@ -50,8 +50,8 @@ module.exports = class Controller {
       const { CategoryId = "all" } = req.query;
       const { CompanyId } = req.access;
       const redisKey = redisCategory(CompanyId, CategoryId);
-      const item = JSON.parse(await redis.get(redisKey));
-      // const item = null;
+      const itemRedis = await redis.get(redisKey);
+      const item = await JSON.parse(itemRedis);
       let data = [];
       if (item) {
         data = item;
