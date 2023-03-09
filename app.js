@@ -15,8 +15,8 @@ const ErrorHandler = require("./middlewares/ErrorHandler");
 const { loggerInfo } = require("./helpers/loggerDebug");
 
 app.get("/log", (req, res) => {
-  loggerInfo("masuk");
-  res.sendFile(path.join(__dirname + "/logs.log"));
+  loggerInfo("CHECK LOG");
+  res.sendFile(path.join(__dirname + "/sahawae.log"));
 });
 
 app.use(routes);
