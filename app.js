@@ -17,9 +17,10 @@ app.set("trust proxy", 1);
 app.use(express.urlencoded({ extended: true, limit: 10485760 }));
 app.use(express.json());
 app.use(requestIp.mw());
+app.set("trust proxy", true);
 
 app.get("/log", (req, res) => {
-  const ipAddress = req.clientIp;
+  const ipAddress = req.ip;
   loggerInfo(`CHECK LOG from ${ipAddress}`);
   res.sendFile(path.join(__dirname + "/logs.log"));
 });
