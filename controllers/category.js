@@ -4,7 +4,7 @@ const { Category, Content } = require("../models");
 const redis = require("../config/redisConfig");
 const { APIGetNameByUserId } = require("../APIs/GlobalAccess");
 const { APPLICATION_ID } = require("../constants/server");
-const { redisCategory, redisDel } = require("../helpers/redis");
+const Redis = require("../helpers/redis");
 const {
   loggerError,
   loggerInfo,
@@ -51,13 +51,13 @@ module.exports = class Controller {
   static async getCategoryDetail(req, res, next) {
     try {
       loggerDebug("ENTER GET CATEGORY DETAIL");
-      loggerDebug("REDIS PING -", await redis.ping());
-      // await redis.flushall();
-      // await redisDel(CompanyId, CategoryId);
+
       const { access_token } = req.headers;
       const { CategoryId = "all" } = req.query;
       const { CompanyId } = req.access;
-      const redisKey = redisCategory(CompanyId, CategoryId);
+      // await Redis.del(CompanyId, CategoryId);
+
+      const redisKey = Redis.categoryKey(CompanyId, CategoryId);
       const itemRedis = await redis.get(redisKey);
       // loggerDebug(JSON.stringify(itemRedis, null, 2));
       const item = await JSON.parse(itemRedis);
