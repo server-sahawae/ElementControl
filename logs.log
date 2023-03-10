@@ -344,3 +344,13 @@
 [Jumat, 10 Maret 2023 16.49.17 WIB] [INFO] default - "GET ADMIN TOKEN"
 [Jumat, 10 Maret 2023 16.49.17 WIB] [DEBUG] default - "ENTER GET CATEGORY DETAIL"
 [Jumat, 10 Maret 2023 16.49.17 WIB] [DEBUG] default - "REDIS EXIST"
+[Jumat, 10 Maret 2023 17.03.00 WIB] [INFO] default - "Element Control listening on port 3002"
+[Jumat, 10 Maret 2023 17.03.01 WIB] [INFO] default - "Redis on"
+[Jumat, 10 Maret 2023 17.03.03 WIB] [INFO] default - "GET ADMIN TOKEN"
+[Jumat, 10 Maret 2023 17.03.04 WIB] [ERROR] default - {}
+[Jumat, 10 Maret 2023 17.03.05 WIB] [INFO] default - "GET ADMIN TOKEN"
+[Jumat, 10 Maret 2023 17.03.05 WIB] [ERROR] default - {}
+[Jumat, 10 Maret 2023 17.04.10 WIB] [INFO] default - "Element Control listening on port 3002"
+[Jumat, 10 Maret 2023 17.04.11 WIB] [INFO] default - "Redis on"
+[Jumat, 10 Maret 2023 17.04.15 WIB] [INFO] default - "GET ADMIN TOKEN"
+[Jumat, 10 Maret 2023 17.04.18 WIB] [INFO] default - "SET CONTENT REDIS"
