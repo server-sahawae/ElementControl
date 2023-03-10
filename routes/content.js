@@ -3,11 +3,7 @@ const { getAdminTokenDetail } = require("../middlewares/GlobalAccessAuth");
 
 const routes = require("express").Router();
 
-routes.get(
-  "/:ContentId",
-  getAdminTokenDetail,
-  Controller.getContentByContentId
-);
+routes.get("/:ContentId", Controller.getContentByContentId);
 routes.patch(
   "/",
   getAdminTokenDetail,

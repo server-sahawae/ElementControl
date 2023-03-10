@@ -55,7 +55,6 @@ module.exports = class Controller {
       const { access_token } = req.headers;
       const { CategoryId = "all" } = req.query;
       const { CompanyId } = req.access;
-      // await Redis.del(CompanyId, CategoryId);
 
       const redisKey = Redis.categoryKey(CompanyId, CategoryId);
       const itemRedis = await redis.get(redisKey);
@@ -71,33 +70,21 @@ module.exports = class Controller {
         const options = { CompanyId };
         if (CategoryId !== "all") options.CategoryId = CategoryId;
         data = await Content.findAll({
+          attributes: ["id"],
           where: options,
           order: [["updatedAt", "DESC"]],
           include: [
             { model: Category, attributes: ["icon", "name", "isDynamic"] },
           ],
         });
-        data = await Promise.all(
-          data.map(async (el) => {
-            el.dataValues.AuthorName = await APIGetNameByUserId(
-              el.dataValues.AuthorId,
-              access_token
-            );
-            el.dataValues.UpdatedName = await APIGetNameByUserId(
-              el.dataValues.UpdatedId,
-              access_token
-            );
-            el.dataValues.categoryIcon = el.dataValues.Category.icon;
-            el.dataValues.categoryName = el.dataValues.Category.name;
-            el.dataValues.categoryIsDynamic = el.dataValues.Category.isDynamic;
-            delete el.dataValues.CategoryId;
-            delete el.dataValues.CompanyId;
-            delete el.dataValues.AuthorId;
-            delete el.dataValues.UpdatedId;
-            delete el.dataValues.Category;
-            return el;
-          })
-        );
+        data = data.map((el) => {
+          el.dataValues.categoryIcon = el.dataValues.Category.icon;
+          el.dataValues.categoryName = el.dataValues.Category.name;
+          el.dataValues.categoryIsDynamic = el.dataValues.Category.isDynamic;
+          delete el.dataValues.Category;
+          return el;
+        });
+
         if (data.length) {
           loggerDebug("SET REDIS");
           await redis.set(redisKey, JSON.stringify(data));

@@ -3,6 +3,7 @@ const { APIGetNameByUserId } = require("../APIs/GlobalAccess");
 const redis = require("../config/redisConfig");
 const { NO_DATA, NO_UPDATE } = require("../constants/ErrorKeys");
 const { loggerInfo, loggerDebug } = require("../helpers/loggerDebug");
+const { contentKey } = require("../helpers/redis");
 const Redis = require("../helpers/redis");
 const { Content } = require("../models");
 
@@ -10,30 +11,33 @@ module.exports = class Controller {
   static async getContentByContentId(req, res, next) {
     try {
       const { ContentId } = req.params;
-      const { CompanyId } = req.access;
-      const redisKey = Redis.contentKey(CompanyId, ContentId);
-      const { access_token } = req.headers;
+      // const { CompanyId } = req.access;
+      const redisKey = Redis.contentKey(ContentId);
+      // const { access_token } = req.headers;
       const itemRedis = JSON.parse(await redis.get(redisKey));
       let result = {};
       if (!itemRedis) {
         const data = await Content.findOne({
-          where: { [Op.and]: [{ CompanyId }, { id: ContentId }] },
+          where: { id: ContentId },
         });
         data.dataValues.AuthorName = await APIGetNameByUserId(
-          data.dataValues.AuthorId,
-          access_token
+          data.dataValues.AuthorId
+          // access_token
         );
         data.dataValues.UpdatedName = await APIGetNameByUserId(
-          data.dataValues.UpdatedId,
-          access_token
+          data.dataValues.UpdatedId
+          // access_token
         );
         delete data.dataValues.AuthorId;
         delete data.dataValues.UpdatedId;
         delete data.dataValues.CompanyId;
         await redis.set(redisKey, JSON.stringify(data));
-        loggerInfo("SET CONTENT REDIS");
+        loggerInfo(`Get Content From Server : ${ContentId}`);
         result = data;
-      } else result = itemRedis;
+      } else {
+        loggerInfo(`Get Content From Redis : ${ContentId}`);
+        result = itemRedis;
+      }
       res.status(200).json(result);
     } catch (error) {
       next(error);
@@ -53,8 +57,9 @@ module.exports = class Controller {
         { isActive, UpdatedId: UserId },
         { where: { id: ContentId } }
       );
-      loggerDebug(`REDIS KEY: ${CompanyId}:${data.CategoryId}:${ContentId}`);
-      await Redis.del(CompanyId, data.CategoryId, ContentId);
+      const redisKey = contentKey(ContentId);
+      loggerDebug(`REDIS KEY: ${redisKey}`);
+      await redis.del(redisKey);
       res.status(200).json({
         message: `${data.title} is now ${
           isActive != "false" ? "active" : "inactive"

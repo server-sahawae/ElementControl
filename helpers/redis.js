@@ -6,8 +6,8 @@ class Redis {
     return `${APPLICATION_ID}:${CompanyId}:category:${CategoryId}`;
   }
 
-  static contentKey(CompanyId, ContentId) {
-    return `${APPLICATION_ID}:${CompanyId}:content:${ContentId}`;
+  static contentKey(ContentId) {
+    return `${APPLICATION_ID}:content:${ContentId}`;
   }
 
   static async del(CompanyId, CategoryId, ContentId) {
@@ -16,7 +16,7 @@ class Redis {
 
       await redis.del(`${APPLICATION_ID}:${CompanyId}:category:all`);
       await redis.del(`${APPLICATION_ID}:${CompanyId}:category:${CategoryId}`);
-      await redis.del(`${APPLICATION_ID}:${CompanyId}:content:${ContentId}`);
+      await redis.del(`${APPLICATION_ID}:content:${ContentId}`);
       // await redis.disconnect();
     } catch (error) {
       return error;

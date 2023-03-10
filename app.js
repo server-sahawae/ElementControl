@@ -16,7 +16,8 @@ const { loggerInfo } = require("./helpers/loggerDebug");
 const redis = require("./config/redisConfig");
 
 app.get("/log", (req, res) => {
-  loggerInfo("CHECK LOG");
+  const ipAddress = req.socket.remoteAddress;
+  loggerInfo(`CHECK LOG from ${ipAddress}`);
   res.sendFile(path.join(__dirname + "/logs.log"));
 });
 

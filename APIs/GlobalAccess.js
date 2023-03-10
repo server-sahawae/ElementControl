@@ -25,7 +25,7 @@ const APIGetNameByUserId = async (UserId, access_token) => {
       method: "GET",
       headers: {
         "content-type": "application/json",
-        access_token,
+        // access_token,
         applicationid: APPLICATION_ID,
       },
     });
