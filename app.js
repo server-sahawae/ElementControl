@@ -21,7 +21,7 @@ app.set("trust proxy", true);
 
 app.get("/log", (req, res) => {
   const ipAddress = req.ip;
-  loggerInfo(`CHECK LOG from ${ipAddress}`);
+  loggerInfo(`CHECK LOG`);
   res.sendFile(path.join(__dirname + "/logs.log"));
 });
 

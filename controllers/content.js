@@ -46,13 +46,40 @@ module.exports = class Controller {
 
   static async patchContentIsActiveByContentId(req, res, next) {
     try {
-      const { isActive, ContentId } = req.body;
+      const { ContentId } = req.params;
+      const { isActive } = req.body;
       const { CompanyId, UserId } = req.access;
       const data = await Content.findOne({
         where: { [Op.and]: [{ CompanyId }, { id: ContentId }] },
       });
       if (!data) throw { name: NO_DATA };
       if (data.isActive == isActive) throw { name: NO_UPDATE };
+      await Content.update(
+        { isActive, UpdatedId: UserId },
+        { where: { id: ContentId } }
+      );
+      const redisKey = contentKey(ContentId);
+      loggerDebug(`REDIS KEY: ${redisKey}`);
+      await Redis.del(CompanyId, data.CategoryId, ContentId);
+      res.status(200).json({
+        message: `${data.title} is now ${
+          isActive != "false" ? "active" : "inactive"
+        }`,
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async putContentIsActiveByContentId(req, res, next) {
+    try {
+      const { ContentId } = req.body;
+      const { CompanyId, UserId } = req.access;
+      const data = await Content.findOne({
+        where: { [Op.and]: [{ CompanyId }, { id: ContentId }] },
+      });
+      if (!data) throw { name: NO_DATA };
+
       await Content.update(
         { isActive, UpdatedId: UserId },
         { where: { id: ContentId } }
